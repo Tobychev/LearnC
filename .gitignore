@@ -1,4 +1,6 @@
 *
 !*.*
 !Makefile
+!ex*/
+Book/
 *.swp
