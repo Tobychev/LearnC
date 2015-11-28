@@ -23,4 +23,4 @@ clean:
 	rm -f ex16
 	rm -f ex17
 	rm -f ex18
-	rm -f ex19
+	rm -f ex19/ex91 && rm -f ex19/object.o
