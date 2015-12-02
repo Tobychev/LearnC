@@ -20,12 +20,12 @@ void Object_describe(void* self)
 	printf("%s\n", obj->description);
 }
 
-void Object_init(void* self)
+int Object_init(void* self)
 {
 	return 1;
 }
 
-void *Object_move(void* self, Direction direction)
+void* Object_move(void* self, Direction direction)
 {
 	printf("You can't go that way\n");
 	return NULL;
