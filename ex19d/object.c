@@ -50,7 +50,12 @@ void* Object_new(size_t size, Object proto, char* description)
     if(!proto.move) {
 		proto.move = Object_move;}
 
-	Object* el = calloc(1,size);
+	// In practice size > sizeof(Object),
+	// and proto is not really of type Object
+	// However, as long as proto is a struct
+	// that starts with an Object things will 
+	// work out
+	Object* el = calloc(1,size); 
 	*el = proto;
 
 	el->description = strdup(description);

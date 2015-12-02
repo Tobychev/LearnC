@@ -105,7 +105,8 @@ int Map_init(void* self)
 	Map* map = self;
 
 	Room* hall    = NEW(Room, "The great hall.");
-    Room* throne  = NEW(Room, "The throne room");
+    //Room* throne  = NEW(Room, "The throne room");
+	Room* throne =Object_new(sizeof(Room),RoomProto,"The throne room");
     Room* arena   = NEW(Room, "The arena, with the minotaur");
     Room* kitchen = NEW(Room, "Kitchen, you have the knife now");
 
@@ -174,6 +175,9 @@ int process_input(Map* game)
             if (game->location->west) {
 				printf("WEST\n");}
             break;
+		case 'Q':
+			return 0;
+			break;
 		default: 
 			printf("Could not understand: %d\n",ch);
 	}

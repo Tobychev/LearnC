@@ -1,6 +1,7 @@
 CFLAGS=-Wall -g
 
 all: ex19
+	cp ex19 ../ex19
 
 ex19: object.o
 
