@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <assert.h>
 #include "ex19.h"
 
 int Monster_attack(void* self, int damage)
@@ -103,15 +104,20 @@ int Map_attack(void* self, int damage)
 int Map_init(void* self)
 {
 	Map* map = self;
+	assert(map != NULL);
 
 	Room* hall    = NEW(Room, "The great hall.");
-    //Room* throne  = NEW(Room, "The throne room");
-	Room* throne =Object_new(sizeof(Room),RoomProto,"The throne room");
+    Room* throne  = NEW(Room, "The throne room");
     Room* arena   = NEW(Room, "The arena, with the minotaur");
-    Room* kitchen = NEW(Room, "Kitchen, you have the knife now");
+    Room* kitchen = NEW(Room, "Kitchen, you have seen the knife now");
+	assert(hall    != NULL);
+	assert(throne  != NULL);
+	assert(arena   != NULL);
+	assert(kitchen != NULL);
 
 	// Init enemy
 	arena->bad_guy = NEW(Monster, "The evil minotaur");
+	assert(arena->bad_guy != NULL);
 
 	// Link up rooms to form map
 	hall->north   = throne;
