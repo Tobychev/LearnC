@@ -1,6 +1,6 @@
 CFLAGS=-Wall -g
 
-all: ex1 ex3 ex4 ex5 ex6 ex7 ex8 ex9 ex10 ex11 ex12 ex13 ex14 ex15 ex16 ex17 ex18 ex19 ex20 ex22 ex23
+all: ex1 ex3 ex4 ex5 ex6 ex7 ex8 ex9 ex10 ex11 ex12 ex13 ex14 ex15 ex16 ex17 ex18 ex19 ex20 ex22 ex23 ex24
 
 ex19:	make_subdir
 	cd ex19d; $(MAKE)
@@ -32,6 +32,8 @@ clean:
 	rm -f ex19d/ex19 && rm -f ex19d/object.o
 	rm -f ex20
 	rm -f ex22d/ex22 && rm -f ex22d/exsizes.o
+	rm -f ex23
+	rm -f ex24
 
 cleanlatest:
-	rm -f ex23
+	rm -f ex24
