@@ -1,5 +1,8 @@
 PREFIX?=/usr/local
-CFLAGS=-Wall -g -llibapr1 -llibaprutil1
+INCLUDES=-I/usr/include/apr-1.0/ -llibapr1 -llibaprutil1
+FLAGS=-Wall -g -D_LARGEFILE64_SOURCE=1 
+
+CFLAGS=$(FLAGS) $(INCLUDES)
 LDFLAGS=-llibapr1 -pthread -llibaprutil1
 
 all: devpkg
