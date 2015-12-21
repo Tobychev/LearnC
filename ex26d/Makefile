@@ -1,9 +1,10 @@
 PREFIX?=/usr/local
-INCLUDES=-I/usr/include/apr-1.0/ -llibapr1 -llibaprutil1
+LIBS=-l apr-1 -l aprutil-1
+INCLUDES=-I /usr/include/apr-1.0/ $(LIBS) 
 FLAGS=-Wall -g -D_LARGEFILE64_SOURCE=1
 
 CFLAGS=$(FLAGS) $(INCLUDES)
-LDFLAGS=-llibapr1 -pthread -llibaprutil1
+LDFLAGS=-pthread $(LIBS)
 
 all: devpkg
 	cp devpkg ../devpkg
