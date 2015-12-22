@@ -1,0 +1,22 @@
+devpkg
+======
+Simple program to automate downloading and building from source, as well as tracking installed sources.
+
+Key
+===
+[argument] means that argument is a necessary argument.
+
+{argument1, argument2, argument3, ...} means that these arguments are optional.
+
+Options
+=======
+devpkg -S
+	Sets up the database file.
+devpkg -I [url] {-i install_opts, -m make_opts, -c config_opts}
+	Installs a piece of software from a URL.
+devpkg -L
+	Lists all software that's been installed.
+devpkg -F [url]
+	Fetches some source code for manual building
+devpkg -B {-i install_opts, -m make_opts, -c config_opts}
+	Builds fetched source code and installs it, even if already installed.
