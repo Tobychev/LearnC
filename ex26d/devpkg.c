@@ -93,12 +93,18 @@ int main(int argc, const char const *argv[])
 			check(rv == 0, "Failed to create database.");
 			break;
 
+		case COMMAND_NONE:
+			printf("Usage: give one of the flags -S -I -L -F -B with apropriate arguments\n");
+			break;
+
 		default:
 			sentinel("Invalid command given");}
 
+	apr_pool_terminate();
 	return 0;
 
 error:
 
+	apr_pool_terminate();
 	return 1;
 }
