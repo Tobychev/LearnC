@@ -5,3 +5,4 @@
 Book/
 *.swp
 *.o
+*.so
