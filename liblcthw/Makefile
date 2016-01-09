@@ -1,4 +1,4 @@
-CFLAGS=-g -O2 -Wall -Wextra -Isrc -rdynamic -DNDEBUG -ldl $(OPTFLAGS)
+CFLAGS=-g -O2 -Wall -Wextra -Isrc -rdynamic -DNDEBUG $(OPTFLAGS)
 LIBS=-ldl $(OPTLIBS)
 PREFIX?=/usr/local
 
@@ -12,7 +12,7 @@ TARGET=build/liblcthw.a
 SO_TARGET=$(patsubst %.a,%.so,$(TARGET))
 
 # Build targets
-all: $(TARGET) $(SO_TARGET) tests
+all: $(TARGET) tests
 
 dev: CFLAGS=-g -Wall -Isrc -Wall -Wextra $(OPTFLAGS)
 dev: all
@@ -31,7 +31,7 @@ build:
 
 # The unit tests
 .PHONY: tests
-tests: CFLAGS += $(TARGET)
+tests: CFLAGS += -ldl $(TARGET)
 tests: $(TESTS)
 	sh ./tests/runtests.sh
 
